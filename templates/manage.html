@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理</title>
+    <link rel="stylesheet" href="{% static 'css/manage.css' %}">
+</head>
+<body>
+    <h1>图书管理</h1>
+    <p>当前管理员：{{ n }}</p>
+    <div class="tb">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>书名</th>
+                    <th>封面</th>
+                    <th>作者</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in book %}
+                {# for循环显示所有图书的信息 #}
+
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.bname }}</td>
+                    <td>{{ item.bimg }}</td>
+                    <td>{{ item.bauthor }}</td>
+                    <td>{{ item.bstate }}</td>
+                    <td><button style="width: fit-content;background-color: rgba(31,143,255,0.85);border-radius:6px;border: none"><a style="color: black;text-decoration: none" href="/{{ item.id }}/edit/{{ n }}/" target="_blank">编辑</a></button> <button style="width: fit-content;background-color: rgba(255,47,47,0.77);border-radius:6px;border: none"><a style="color: black;text-decoration: none" href="/delete/?bid={{ item.id }}" target="_blank">删除</a></button> </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <form method="post" action="/manage/add/{{ n }}/">
+
+                        {# 显示添加栏 #}
+
+                        {% csrf_token %}
+                        <td>自动添加</td>
+                        <td><input style="width: 97.2%" type="text" name="bname" placeholder="书名"></td>
+                        <td><input style="width: 97.9%" type="text" name="bimg" placeholder="文件地址(不要引号)"></td>
+                        <td><input style="width: 97.3%" type="text" name="bauthor" placeholder="作者"></td>
+                        <td><input style="width: 95.5%" type="text" name="bstate" placeholder="状态"></td>
+                        <td style="border: none"><input style="border-color: #babafc;width: 100%;background-color: rgba(0,182,255,0.8);border-radius: 8px;cursor: pointer" type="submit" value="添加"></td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

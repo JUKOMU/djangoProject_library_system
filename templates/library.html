@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/library.css' %}">
+    <title>图书管理系统</title>
+</head>
+<body>
+    <div class="login_bnt">
+        <a href="/login/">登录</a>
+    </div>
+    <h1>图书管理系统</h1>
+    <div class="bnt">
+        <form method="post" action="/books/">
+
+         {# 发送进入页面请求 #}
+
+            {% csrf_token %}
+            <input type="hidden" name="name" value="{{ user }}" id="t1">
+            <input type="submit" value="书目查询" id="i1">
+        </form>
+
+        <form method="post" action="/state/">
+
+        {# 发送进入页面请求 #}
+
+            {% csrf_token %}
+            <input type="hidden" name="name" value="{{ user }}" id="t2">
+            <input type="submit" value="状态查询" id="i2">
+        </form>
+    </div>
+
+    <div class="inf">
+        当前用户---->{{ user }}<-----
+    </div>
+</body>
+</html>

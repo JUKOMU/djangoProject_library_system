@@ -1,0 +1,59 @@
+/*设置背景*/
+body{
+    background-image: url("../img/Backgroundimg.png");
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+/*登录框*/
+.login_item{
+    top: 20%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+    width: 400px;
+    height: 360px;
+    border: 1px black;
+    border-radius: 10%;
+}
+
+/*设置输入框*/
+.input_item{
+    display: block;
+    background-color: rgba(88,200,255,0.5);
+    margin-top: 5%;
+    margin-left: 8%;
+    width: 80%;
+    border: none;
+    font-size: 20px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+/*设置登录按钮*/
+#l{
+    background-image: linear-gradient(to right, #009dff, #009dff);
+    width: 230px;
+    height: 40px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+    border-color: #29a7f5;
+    border-radius: 10px;
+}
+
+/*设置提示信息*/
+#p1{
+    text-align: center;
+    color: red;
+}
+
+/*设置提示注册*/
+#p2{
+    padding:5px;
+    text-align:center;
+    margin-bottom:10px ;
+}
+

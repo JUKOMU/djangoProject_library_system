@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑</title>
+    <link rel="stylesheet" href="{% static 'css/manage.css' %}">
+</head>
+<body>
+    <h1>图书编辑</h1>
+    <p>当前管理员：{{ n }}</p>
+    <div class="tb">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>书名</th>
+                    <th>封面</th>
+                    <th>作者</th>
+                    <th>状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in book %}
+
+                {# 显示被编辑图书信息 #}
+
+                    <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.bname }}</td>
+                    <td>{{ item.bimg }}</td>
+                    <td>{{ item.bauthor }}</td>
+                    <td>{{ item.bstate }}</td>
+                </tr>
+                <tr>
+                    <form method="post" action="/{{ item.id }}/edit/<{{ n }}/">
+
+                    {# post提交图书更新信息 #}
+
+                        {% csrf_token %}
+                        <td>无法修改</td>
+                        <td><input type="text" name="bname" placeholder="修改"></td>
+                        <td><input type="text" name="bimg" placeholder="修改"></td>
+                        <td><input type="text" name="bauthor" placeholder="修改"></td>
+                        <td><input type="text" name="bstate" placeholder="修改"></td>
+                        <td><input type="submit" value="提交修改"></td>
+                    </form>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

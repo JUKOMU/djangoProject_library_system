@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>教师登录界面</title>
+    <link rel="stylesheet" href="{% static 'css/teacher_login.css' %}">
+</head>
+<body>
+<div class="login_item" style="background-color: rgba(255,255,255,0.89)">
+    <h1 style="text-align-last: center;">教师登录</h1>
+        <form action="/login/" method="post" >
+            {# 发送用户名和密码到后台进行判断 #}
+
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="用户名/Your name" class="input_item">
+            <br/>
+            <input type="password" name="password" placeholder="密码/Password" class="input_item">
+            <br/>
+            <input type="submit" value="登录/Login" id="l">
+            <br/>
+            <br/>
+            <p id="p1">{{ n }}</p>
+        </form>
+        <p id="p2">
+            没有账号？点击<a href="/register/" target="_blank">注册/Register</a>
+        </p>
+        <p style="text-align: center;font-size: 16px;"><a href="/managelogin/" target="_blank">管理员登录</a></p>
+</div>
+</body>
+<script>
+const body = document.querySelector('body')
+
+// 计算
+function computedBGPosition(num, doc) {
+return (60 - Number((num / doc * 20).toFixed(1)) + '%')
+}
+
+// 给文档添加鼠标移动的事件监听
+document.addEventListener('mousemove', e => {
+// 移动背景
+body.style.backgroundPosition = `
+${computedBGPosition(e.clientX, window.innerWidth)}
+${computedBGPosition(e.clientY, window.innerHeight*10)}
+
+`
+})
+const login_item = document.querySelector('.login_item')
+
+// 计算函数
+function computedTransform(num, doc) {
+return (num / doc * 40 - 20).toFixed(1)
+}
+
+// 给文档添加一个鼠标移动的事件监听
+document.addEventListener('mousemove', e => {
+// 旋转容器
+login_item.style.transform = `
+rotateX(${computedTransform(e.clientX, window.innerWidth)}deg)
+rotateY(${computedTransform(e.clientY, window.innerHeight)}deg)
+`
+})
+
+</script>
+</html>

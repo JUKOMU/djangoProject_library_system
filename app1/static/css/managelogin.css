@@ -1,0 +1,55 @@
+/*设置背景*/
+body{
+    background-image: url("../img/20221007125656.jpg");
+    background-size:100%;
+}
+
+/*登录框*/
+.login_item{
+    top: 20%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+    width: 400px;
+    height: 360px;
+    border: 1px black;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 20px;
+}
+
+/*设置输入框*/
+.input_item{
+    display: block;
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 80%;
+    border: none;
+    border-bottom: 1px black;
+    font-size: 25px;
+}
+
+/*设置登录按钮*/
+#l{
+    font-size: 18px;
+    background-color: rgba(255,0,0,0.9);
+    width: 230px;
+    height: 40px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+}
+
+/*设置提示信息*/
+#p1{
+    text-align: center;
+    color: red;
+}
+
+/*设置提示注册*/
+#p2{
+    padding:5px;
+    text-align:center;
+    margin-bottom:10px ;
+}

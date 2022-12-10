@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <link rel="stylesheet"  href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <div class="register_item">
+        <h1 style="text-align:center;">注册</h1>
+        <form action="/register/" method="post">
+            {# 显示注册栏 #}
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="用户名/Your name" class="input_item" id="uname">
+            <br/>
+            <input type="password" name="password" placeholder="密码/Password" class="input_item" id="password1">
+            <br/>
+            <input type="password" name="newpassword" placeholder="确认密码/Confirm Password" class="input_item" id="password2">
+            <br/>
+            <br/>
+            <input type="submit" value="注册/Register" id="l" >
+            <br>
+            <br>
+            <p style="text-align:center;" id="p1">
+                {# 显示注册失败信息 #}
+                {{ n1 }}<a href="/login/">{{ n2 }}</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

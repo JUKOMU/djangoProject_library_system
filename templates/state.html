@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/books.css' %}">
+    <title>状态查询</title>
+</head>
+<body>
+
+    <div class="search">
+        <form method="post" action="/state/">
+            {#通过post方式发送查询状态关键字#}
+
+            {% csrf_token %}
+            <input class="placeholder" placeholder="搜索图书状态(在馆/借出)(输入all查询所有图书)……" name="keyword">
+        </form>
+    </div>
+    <br>
+    <div class="tb">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>书名</th>
+                    <th>封面</th>
+                    <th>作者</th>
+                    <th>状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in book %}
+                {# for循环展示图书信息 #}
+
+                <tr>
+                    <td style="text-align: center;font-size: 30px;" >{{ item.bname }}</td>
+                    <td width="200px"><img width="100%" height="200px" src="{% static 'img/bimg/'%}{{ item.bimg }}"></td>
+                    <td style="text-align: center;font-size: 30px;" width="35%">{{ item.bauthor }}</td>
+                    <td style="text-align: center;font-size: 30px;" width="35%">{{ item.bstate }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

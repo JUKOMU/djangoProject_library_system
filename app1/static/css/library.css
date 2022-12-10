@@ -1,0 +1,81 @@
+/*设置背景*/
+body{
+    background-image: url("../img/Backgroundimg.png");
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+h1{
+    font-size: 50px;
+    text-align:center
+
+}
+
+/*设置查询按钮*/
+.bnt{
+    top: 20%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+    width: 400px;
+    height: 320px;
+    border-radius: 20px;
+    font-size: 38px;
+    text-align: center;
+    text-decoration: underline;
+
+}
+
+/*设置登录按钮字体颜色*/
+a{
+    color: #00609c ;
+}
+
+/*设置显示用户信息*/
+.inf{
+    position: absolute;
+    width: fit-content;
+    height:fit-content;
+    border: 1px black;
+    background-color: rgba(255,255,255,0.5);
+    top: 0;
+    right: 0;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+/*书目查询按钮*/
+#i1{
+    background-color: rgba(0,0,0,0.2);
+    width:fit-content;
+    height:fit-content;
+    left: 0;
+    right: 0;
+    margin:28px auto;
+    font-size: 30px;
+}
+
+/*状态查询按钮*/
+#i2{
+    background-color: rgba(0,0,0,0.2);
+    width:fit-content;
+    height:fit-content;
+    left: 0;
+    right: 0;
+    margin:10px auto;
+    font-size: 30px;
+}
+
+/*设置登录按钮位置*/
+.login_bnt{
+    position: absolute;
+    width: fit-content;
+    height:fit-content;
+    border: 1px black;
+    background-color: rgba(255,255,255,0.5);
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    font-size: 20px;
+}
